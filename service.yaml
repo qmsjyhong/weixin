@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: foods-wechat
+  namespace: development
+  labels:
+    app: foods-wechat
+spec:
+  selector:
+    app: foods-wechat
+  ports:
+  - port: 80
+    targetPort: 80
+    name: http

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+        <meta name="apple-mobile-web-app-capable" content="no" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta http-equiv="Cache-Control" content="must-revalidate,no-cache" />
+        <script src="static/config.js?v=1.11.1"></script>
+        <script>
+            function search(url) {
+                url = url || window.location.href;
+                if (url.indexOf('#') != -1) {
+                    url = url.split('#')[1];
+                }
+
+                var params = '';
+
+                if (url.indexOf('?') != -1) {
+                    params = url.substr(url.indexOf('?') + 1);
+                }
+
+                var obj = {};
+
+                if (params) {
+                    var arr = [];
+
+                    if (params.indexOf('&') == -1) {
+                        arr = [params];
+                    } else {
+                        arr = params.split('&');
+                    }
+                    for (var i = 0; i < arr.length; i++) {
+                        var s = arr[i].split('=');
+
+                        obj[s[0]] = decodeURIComponent(s[1]);
+                    }
+                }
+                return obj;
+            }
+
+            var params = search();
+
+            if (params.code) {
+                var url = sessionStorage.getItem('redirect_uri');
+
+                if (url.indexOf('?') != -1) {
+                    location.href = url + '&code=' + params.code;
+                } else {
+                    location.href = url + '?code=' + params.code;
+                }
+            } else {
+                sessionStorage.setItem('redirect_uri', params.redirect_uri);
+                location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + params.appid + '&redirect_uri=' + encodeURIComponent(htp.wxproxy) + '&response_type=code&scope=' + params.scope + '&state=STATE#wechat_redirect';
+            }
+        </script>
+    </head>
+
+    <body>
+
+    </body>
+
+</html>

@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  #annotations:
+  #  ingress.kubernetes.io/rewrite-target: /qms-c/
+  name: ingress-foods-wechat
+  namespace: development
+spec:
+  tls:
+  - hosts:
+    - app-dev.qms888.com
+    secretName: app-dev.qms888.com
+  rules:
+  - host: app-dev.qms888.com
+    http:
+      paths:
+      - path: /wechat/
+        backend:
+          serviceName: foods-wechat
+          servicePort: 80

@@ -1,0 +1,4 @@
+build/*.js
+config/*.js
+src/utils/parabola.js
+src/utils/pinyin.js

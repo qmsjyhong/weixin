@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: foods-wechat
+  namespace: development
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: foods-wechat
+  template:
+    metadata:
+      labels:
+        name: foods-wechat
+        app: foods-wechat
+    spec:
+      containers:
+      - image: registry.meia8.com/front-end/foods_wechat:develop
+        imagePullPolicy: Always
+        name: foods-wechat       
+      imagePullSecrets:
+        - name: "registry.meia8.com"
+      restartPolicy: Always

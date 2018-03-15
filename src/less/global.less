@@ -1,0 +1,283 @@
+.container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-overflow-scrolling: touch;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.9rem;
+    z-index: 10;
+}
+
+//业务样式表
+.login-box {
+    margin-top: 0.2rem;
+    margin-bottom: 0.68rem;
+    border-top: 1px solid #eee;
+    .login-item {
+        display: flex;
+        width: 100%;
+        height: 1rem;
+        border-bottom: 1px solid #eee;
+        background-color: #fff;
+        overflow: hidden;
+        &-label {
+            width: 1.3rem;
+            height: 1rem;
+            padding-left: 0.2rem;
+            .login-icon {
+                width: 100%;
+                height: 100%;
+                background-size: 0.4rem 0.4rem;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        }
+        &-value {
+            position: relative;
+            width: 6.2rem;
+            height: 1rem;
+            input {
+                display: block;
+                font-size: 0.26rem;
+                height: 1rem;
+                width: 6.2rem;
+                margin: 0;
+                padding: 0;
+                padding-right: 0.28rem;
+                &[type='tel'] {
+                    padding-right: 2.2rem;
+                }
+            }
+            .addBtn {
+                position: absolute;
+                right: 0.3rem;
+                top: 0;
+                bottom: 0;
+                font-size: 0.28rem;
+                width: 1.8rem;
+                height: 0.6rem;
+                line-height: 0.6rem;
+                text-align: center;
+                background-color: #fd5615;
+                color: #fff;
+                margin: auto;
+                border-radius: 0.6rem;
+                &.disabled {
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
+}
+
+.actBtn {
+    width: 90%;
+    margin: auto;
+    background-color: #fd5615;
+    color: #fff;
+}
+
+.inputBtn {
+    width: 90%;
+    display: block;
+    margin: auto;
+    background-color: #fd5615;
+    color: #fff;
+    outline: none;
+    border: 0;
+    font-size: 0.36rem;
+    height: 0.75rem;
+    letter-spacing: 0.1rem;
+    border-radius: 0.08rem;
+    box-shadow: 0 0 0.05rem #fd5615;
+}
+
+.login-tab {
+    width: 100%;
+    height: 0.8rem;
+    border-bottom: 1px solid #eee;
+    .mint-tab-item {
+        height: 0.8rem;
+        padding: 0;
+        margin: 0;
+        &:hover {
+            text-decoration: none;
+        }
+        &-label {
+            width: 80%;
+            font-size: 0.32rem;
+            margin: auto;
+            height: 0.8rem;
+            line-height: 0.8rem;
+        }
+    }
+    .is-selected {
+        margin-bottom: 0;
+        border-bottom: none !important;
+        color: black !important;
+        .mint-tab-item-label {
+            border-bottom: 2px solid #fe5615;
+            color: #fe5615;
+        }
+    }
+}
+
+.v-search {
+    width: 100%;
+    background-color: #f3f3f3;
+    height: 0.8rem;
+    border-radius: 0.1rem;
+    display: flex;
+    &-input {
+        border: none;
+        outline: none;
+        font-size: 0.28rem;
+        background-color: transparent;
+        text-indent: 0.5rem;
+        flex-grow: 1;
+    }
+    &-fun {
+        font-size: 0.5rem;
+        color: #999;
+        line-height: 0.8rem;
+        padding: 0 0.2rem;
+    }
+}
+
+//覆盖框架样式
+.city-list {
+    .mint-indexlist {
+        height: 100%;
+        .mint-indexlist-content {
+            height: 100%;
+        }
+    }
+    .mint-cell {
+        height: 0.9rem;
+        min-height: 0.9rem;
+    }
+}
+
+.mint-toast {
+    padding: 0 !important;
+    border-radius: none;
+    background: transparent;
+    width: 80%;
+    &-text {
+        display: inline-block;
+        padding: 10px !important;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 1000;
+        -webkit-transition: opacity 0.3s linear;
+        transition: opacity 0.3s linear;
+    }
+}
+
+.mint-switch-core {
+    width: 1.04rem;
+    height: 0.64rem;
+    border-radius: 0.32rem;
+    &:before {
+        width: 1rem;
+        height: 0.6rem;
+        border-radius: 0.3rem;
+    }
+    &:after {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 0.3rem;
+    }
+}
+
+.mint-switch-input:checked + .mint-switch-core {
+    border-color: #fd5615;
+    background-color: #fd5615;
+    &:after {
+        transform: translateX(0.4rem);
+    }
+}
+
+.mint-spinner-fading-circle {
+    margin-right: 0.2rem;
+}
+
+.mint-msgbox-wrapper {
+    .mint-msgbox {
+        border-radius: 15px;
+        width: 280px;
+        font-size: 15px;
+        color: #333;
+        .mint-msgbox-header {
+            .mint-msgbox-title {
+                padding: 0 0.1rem;
+                font-weight: normal;
+            }
+        }
+        .mint-msgbox-content {
+            padding-left: 0.28rem;
+            padding-right: 0.28rem;
+            .mint-msgbox-message {
+                line-height: 155%;
+                color: #333;
+            }
+        }
+        .mint-msgbox-btns {
+            .mint-msgbox-confirm {
+                color: #fd5615;
+            }
+        }
+    }
+}
+
+.mint-indicator {
+    .mint-indicator-mask {
+        z-index: 2000;
+    }
+    .mint-indicator-wrapper {
+        z-index: 2001;
+    }
+}
+
+.swiper-pagination-bullet-active {
+    background: #797b7d;
+}
+
+.refunddish-applysuccess-bg {
+    background: url('../assets/refund/img_bj_dish.png') no-repeat;
+}
+
+.refund-apply-success-bg {
+    background: url('../assets/refund/img_bj_refund.png') no-repeat;
+}
+
+.paysuccess-bg {
+    background: url('../assets/pay/img_bj.png') no-repeat;
+}
+
+.cooking-success-bg {
+    background: url('../assets/refund/img_bj_cooking.png') no-repeat;
+}
+
+.active-btn {
+    background-color: #fd5615;
+    color: #fff;
+}
